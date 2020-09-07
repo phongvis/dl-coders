@@ -9,17 +9,20 @@ This chapter dives into implementing a binary classifier using `PyTorch`. It sta
 In this blog post, I will highlight the parts that excite me, whereas my full implementation can be found in this [notebook](https://github.com/phongvis/dl-coders/blob/master/04/04_full.ipynb). 
 
 ## The training process
-![machine-learning-training](/images/04_blog_files/training_process.svg)
+![machine-learning-training](/images/04_blog_files/training_process.svg) "Source: https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb"
 
 From the figure in the book, the process consists of an initialization and an iterative loop:
->1. **Init.** Initialize the weights.
+>S1. **Init.** Initialize the weights.
 >
 >REPEAT
 >
->2. **Predict.** For each image, use the current weights and the pixel values to compute a derived value that can be used to predict whether it appears to be a 3 or a 7.
->3. **Loss.** Measure the goodness of the model based on these predictions and real labels. Loss is the opposite measurement to the goodness as we want to minimize the loss.
->4. **Gradient.** Calculate the derivative of the loss with respect to the weights. This measures for each weight, how changing that weight would change the loss.
->5. **Step**. Change all the weights with an amount proportional to the gradients.
+>S2. **Predict.** For each image, use the current weights and the pixel values to compute a derived value that can be used to predict whether it appears to be a 3 or a 7.
+>
+>S3. **Loss.** Measure the goodness of the model based on these predictions and real labels. Loss is the opposite measurement to the goodness as we want to minimize the loss.
+>
+>S4. **Gradient.** Calculate the derivative of the loss with respect to the weights. This measures for each weight, how changing that weight would change the loss.
+>
+>S5. **Step**. Change all the weights with an amount proportional to the gradients.
 >
 >UNTIL stopping criteria meet (such as when the model doesn't improve or get worse or already train for long enough).
 
@@ -84,7 +87,7 @@ PyTorch helps us simplify the code.
 1. Use an optimizer `torch.optim.SGD` which handles step and zero grad (Step 4 and 5).
 
 This side-by-side comparison could help see the changes.
-![code comparison](/images/04_blog_files/comparison.png)
+![code comparison](/images/04_blog_files/comparison.png) "Left: from scratch implementation. Right: simplification with PyTorch classes."
 
 For this simple linear model, the benefit might not be so great. But PyTorch provides ways to build more complex deep network architecture and a large number of loss functions and optimization algorithms. For example, here is a 4-layer deep neural net I built to achieve above 99% accuracy.
 
