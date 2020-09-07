@@ -9,10 +9,10 @@ This chapter dives into implementing a binary classifier using `PyTorch`. It sta
 In this blog post, I will highlight the parts that excite me, whereas my full implementation can be found in this [notebook](https://github.com/phongvis/dl-coders/blob/master/04/04_full.ipynb). 
 
 ## The training process
-![machine-learning-training](images/04_blog_files/training_process.svg)
+![machine-learning-training](/images/04_blog_files/training_process.svg)
 
 From the figure in the book, the process consists of an initialization and an iterative loop:
-> 1. **Init.** Initialize the weights.
+>1. **Init.** Initialize the weights.
 >
 >REPEAT
 >
@@ -84,7 +84,7 @@ PyTorch helps us simplify the code.
 1. Use an optimizer `torch.optim.SGD` which handles step and zero grad (Step 4 and 5).
 
 This side-by-side comparison could help see the changes.
-![code comparison](images/04_blog_files/comparison.png)
+![code comparison](/images/04_blog_files/comparison.png)
 
 For this simple linear model, the benefit might not be so great. But PyTorch provides ways to build more complex deep network architecture and a large number of loss functions and optimization algorithms. For example, here is a 4-layer deep neural net I built to achieve above 99% accuracy.
 
